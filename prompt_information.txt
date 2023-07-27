@@ -1,0 +1,9 @@
+This is the twelfth program derived from 100 program prompts suggested by ChatGPT for a 4 week python course. Since I already have programming expertise, I'll be combining the following 6 prompts into a single program. My main goal is to pay close attention to pythonic syntax, creating/updating git repositories, and developing good commenting habits. Upon completing this program, I'll push it to github and request feedback from my peers.
+
+The 6 prompts are:
+36. Implement a program that removes duplicate elements from a list using a function.
+37. Create a program that sorts a list of numbers in ascending order using a sorting algorithm.
+38. Implement a program that merges two sorted lists into a single sorted list.
+39. Create a program that checks if two lists are equal.
+40. Implement a program that counts the occurrence of each element in a list.
+41. Create a program that finds the common elements between two lists.
