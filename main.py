@@ -1,8 +1,8 @@
 '''
 >>> JAAR
->>> 07/28/2023
+>>> 07/29/2023
 >>> Practicing Fundamentals Program 12
->>> Version 1
+>>> Version 2
 '''
 
 '''
@@ -45,24 +45,26 @@ def main() :
     int_list_II = list_input()
     list_II_duplicates = count_duplicates(int_list_II)
     list_sort = lambda int_list : sorted(list(set(int_list)))
-    sort_list_I = list_sort(int_list_I)
-    sort_list_II = list_sort(int_list_II)
-    if sort_list_I == sort_list_II :
-        print(f"Both list (sans duplicates) are identical: {', '.join(map(str, sort_list_I))}")
+    if list_sort(int_list_I) == list_sort(int_list_II) :
+        print(f"Both list (sans duplicates) are identical: {', '.join(map(str, list_sort(int_list_I)))}")
     else :
-        merged_list = list_sort(int_list_I + int_list_II)
+        merged_list = int_list_I + int_list_II
+        common = lambda x, y : list(set(x).intersection(set(y)))
+        unique = lambda x, y : list(set(x).difference(set(y)))
         print(f"""
-    Merging both list we get:     {', '.join(map(str, merged_list))}
-    Common integers:              {', '.join(str(x) for x in merged_list if x in sort_list_I and x in sort_list_II)}
-    Unique integers for list I:   {', '.join(str(x) for x in sort_list_I if x not in sort_list_II)}
-    Unique integers for list II:  {', '.join(str(x) for x in sort_list_II if x not in sort_list_I)}""")
+    Merging both list we get:     {', '.join(map(str, list_sort(merged_list)))}
+    Common integers:              {', '.join(map(str, sorted(common(int_list_I, int_list_II))))}
+    Unique integers for list I:   {', '.join(map(str, sorted(unique(merged_list, int_list_II))))}
+    Unique integers for list II:  {', '.join(map(str, sorted(unique(merged_list, int_list_I))))}""")
 
-    print('List I Duplicates:')
-    for key in list_I_duplicates.keys() :
-        print(f'\t{key}: x{list_I_duplicates[key]}')
-    print('List II Duplicates:')
-    for key in list_II_duplicates.keys() :
-        print(f'\t{key}: x{list_II_duplicates[key]}')
+    if list_I_duplicates :
+        print('List I Duplicates:')
+        for key in list_I_duplicates.keys() :
+            print(f'\t{key}: x{list_I_duplicates[key]}')
+    if list_II_duplicates :
+        print('List II Duplicates:')
+        for key in list_II_duplicates.keys() :
+            print(f'\t{key}: x{list_II_duplicates[key]}')
 
 if __name__ == '__main__' :
     main()
